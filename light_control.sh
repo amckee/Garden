@@ -2,6 +2,7 @@
 
 ## run the check. if it's between the hours of $ontime and $offtime, the lights should be on
 
+cd $(dirname "$0")
 . pins
 
 # if the override has been active for more than a minute, rm the file

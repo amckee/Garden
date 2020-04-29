@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd $(dirname "$0")
 . pins
 
 if [ ! -d "/sys/class/gpio/gpio$button/" ]; then
