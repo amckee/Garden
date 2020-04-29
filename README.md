@@ -9,5 +9,5 @@ or just checking on things after hours.
 Of course, make sure you either follow the pinout or adjust the scripts accordingly.
 
 Todo List:
-	- Add soil moisture sensors
-	- Automate watering when needed
+- Add soil moisture sensors
+- Automate watering when needed
