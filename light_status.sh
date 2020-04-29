@@ -1,6 +1,6 @@
 #!/bin/bash
 
-light=22
+. pins
 
 ## return value:
 ## 0 == on
@@ -12,12 +12,13 @@ if [ -f /dev/shm/lightson ]; then
 	exit
 fi
 
-if [ -d "/sys/class/gpio/gpio$light/" ]; then
-	if [ "$(cat /sys/class/gpio/gpio$light/value)" -eq 1 ]; then
+if [ -d "/sys/class/gpio/gpio$outlet1/" ]; then
+	if [ "$(cat /sys/class/gpio/gpio$outlet1/value)" -eq 1 ]; then
 		echo "On"
 		exit
 	else
 		echo "Off"
+		exit
 	fi
 fi
 

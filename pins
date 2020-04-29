@@ -1,0 +1,9 @@
+onhour=08
+offhour=17
+
+outlet1=22
+outlet2=23
+
+button=27
+
+logfile="/home/pi/bin/garden/garden.log"

@@ -1,19 +1,17 @@
 #!/bin/bash
 
-btn=27
-light=22
-logfile="/home/pi/bin/garden/garden.log"
+. pins
 
-if [ ! -d "/sys/class/gpio/gpio$btn/" ]; then
+if [ ! -d "/sys/class/gpio/gpio$button/" ]; then
 	echo "$(date) Setting up button" | tee -a "$logfile"
-	echo $btn > /sys/class/gpio/export
+	echo $button > /sys/class/gpio/export
 	sleep .5
-	echo "in" > "/sys/class/gpio/gpio$btn/direction"
+	echo "in" > "/sys/class/gpio/gpio$button/direction"
 	sleep .5
 fi
 
 while sleep .2; do
-	val=$(cat "/sys/class/gpio/gpio$btn/value")
+	val=$(cat "/sys/class/gpio/gpio$button/value")
 	if [ "$val" -eq 1 ]; then
 	        echo "$(date) Button pushed; override activated" | tee -a "$logfile"
 	        touch /dev/shm/lightson

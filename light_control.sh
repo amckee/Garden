@@ -2,13 +2,7 @@
 
 ## run the check. if it's between the hours of $ontime and $offtime, the lights should be on
 
-ontime=08
-offtime=17
-
-outlet1=22
-outlet2=23
-
-logfile="/home/pi/bin/garden/garden.log"
+. pins
 
 # if the override has been active for more than a minute, rm the file
 find /dev/shm/ -maxdepth 1 -type f -name lightson -cmin +5 -print -delete | tee -a "$logfile"
@@ -49,7 +43,7 @@ fi
 hr=$(date +%H)
 #echo "hr is $hr"
 
-if [ $hr -ge $ontime ] && [ $hr -lt $offtime ]; then
+if [ $hr -ge $onhour ] && [ $hr -lt $offhour ]; then
 	if [ $(cat /sys/class/gpio/gpio$outlet1/value) -eq 0 ]; then
 		# need to toggle
 		echo "$(date) Activating first relay" | tee -a "$logfile"
