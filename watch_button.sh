@@ -16,9 +16,7 @@ while sleep .2; do
 	if [ "$val" -eq 1 ]; then
 	        echo "$(date) Button pushed; override activated" | tee -a "$logfile"
 	        touch /dev/shm/lightson
-	        #echo 0 > "/sys/class/gpio/gpio$light/value"
+	        echo 0 > "/sys/class/gpio/gpio$outlet1/value"
 	fi
 done
 
-
-/home/pi/bin/garden/light_control.sh
