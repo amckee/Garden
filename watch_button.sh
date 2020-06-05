@@ -16,7 +16,8 @@ while sleep .2; do
 	if [ "$val" -eq 1 ]; then
 	        echo "$(date) Button pushed; override activated" | tee -a "$logfile"
 	        touch /dev/shm/lightson
-	        echo 0 > "/sys/class/gpio/gpio$outlet1/value"
+	        echo 1 > "/sys/class/gpio/gpio$outlet1/value"
+		echo 1 > "/sys/class/gpio/gpio$outlet2/value"
 	fi
 done
 
