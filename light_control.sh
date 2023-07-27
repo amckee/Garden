@@ -5,7 +5,7 @@
 cd $(dirname "$0")
 . pins
 
-# if the override has been active for more than a minute, rm the file
+# if the override has been active for more than five minutes, rm the file to disable
 find /dev/shm/ -maxdepth 1 -type f -name lightson -cmin +5 -print -delete | tee -a "$logfile"
 
 if [ -f /dev/shm/lightson ]; then
